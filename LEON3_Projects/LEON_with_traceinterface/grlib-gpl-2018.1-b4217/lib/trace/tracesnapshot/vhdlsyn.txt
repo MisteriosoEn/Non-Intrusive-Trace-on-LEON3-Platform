@@ -1,0 +1,2 @@
+snapshotdecl.vhd
+tracesnapshot.vhd
