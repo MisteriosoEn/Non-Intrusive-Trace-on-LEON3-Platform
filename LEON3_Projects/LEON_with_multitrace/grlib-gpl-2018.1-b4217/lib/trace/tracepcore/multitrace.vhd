@@ -83,6 +83,7 @@ architecture rtl of multitrace is
        return tmp;
    end init_ram;
 
+    ----signal defining------
     signal a, a_in : registers;
     signal b, b_in : registers;
     signal c, c_in : registers;
@@ -146,6 +147,7 @@ architecture rtl of multitrace is
                 variable errmode_instrctrap_progcnter_readdata : std_logic_vector(31 downto 0);
                 variable ld_st_param_readdata : std_logic_vector(31 downto 0);
                 variable timetag_multicyc_unusedbit_readdata : std_logic_vector(31 downto 0);
+				
                 begin
                     a_tempv := a;
                     b_tempv := b;
@@ -166,8 +168,8 @@ architecture rtl of multitrace is
                     timetag_multicyc_unusedbit_readdata  := (others => '0');
 					
                     ----Decode----
-                    if (apbi.paddr(19 downto 4) = "0000001000000000") then                  --0x200, "quasi line decoding"(regarding the first four registers(i.e., a, b,c, control register) also as a line(as the first line, i.e., line 0) of all the register array).
-                        case apbi.paddr(3 downto 2) is                                         --"quasi row decoding", which is similar to the above comment
+                    if (apbi.paddr(19 downto 4) = "0000001000000000") then                  --0x200. At this time the address points to the first four regists: a, b, c and control register. line decoding. 
+                        case apbi.paddr(3 downto 2) is                                      --row decoding
                             when "00" => a_readdata := a.reg(31 downto 0);                  --temporarily remain these for executing number-multiplying C code in test software.  address is 0x8000_2000.
                             when "01" => b_readdata := b.reg(31 downto 0);                  --temporarily remain these for executing number-multiplying C code in test software.  address is 0x8000_2004.
                             when "10" => c_readdata := c.reg(31 downto 0);                  --temporarily remain these for executing number-multiplying C code in test software.  address is 0x8000_2008.
