@@ -143,10 +143,10 @@ architecture rtl of multitrace is
                 variable ctrl_reg_readdata    : std_logic_vector(31 downto 0);
                 variable ctrl_reg_tempvar     : registers;
                 
-                variable opcode_readdata      : std_logic_vector(31 downto 0);                
+                variable opcode_readdata                       : std_logic_vector(31 downto 0);                
                 variable errmode_instrctrap_progcnter_readdata : std_logic_vector(31 downto 0);
-                variable ld_st_param_readdata : std_logic_vector(31 downto 0);
-                variable timetag_multicyc_unusedbit_readdata : std_logic_vector(31 downto 0);
+                variable ld_st_param_readdata                  : std_logic_vector(31 downto 0);
+                variable timetag_multicyc_unusedbit_readdata   : std_logic_vector(31 downto 0);
 				
                 begin
                     a_tempv := a;
@@ -179,13 +179,13 @@ architecture rtl of multitrace is
                     else
                         case apbi.paddr(3 downto 2) is --line decoding
                             when "00" =>
-                            opcode_readdata       := opcode(row_decoding(apbi.paddr(19 downto 4))).reg(31 downto 0); --row decoding
+                            opcode_readdata                       := opcode(row_decoding(apbi.paddr(19 downto 4))).reg(31 downto 0);                       --row decoding
                             when "01" => 
                             errmode_instrctrap_progcnter_readdata := errmode_instrctrap_progcnter(row_decoding(apbi.paddr(19 downto 4))).reg(31 downto 0); --row decoding
                             when "10" =>
-                            ld_st_param_readdata  := ld_st_param(row_decoding(apbi.paddr(19 downto 4))).reg(31 downto 0); --row decoding
+                            ld_st_param_readdata                  := ld_st_param(row_decoding(apbi.paddr(19 downto 4))).reg(31 downto 0);                  --row decoding
                             when "11" =>
-                            timetag_multicyc_unusedbit_readdata := timetag_multicyc_unusedbit(row_decoding(apbi.paddr(19 downto 4))).reg(31 downto 0); --row decoding
+                            timetag_multicyc_unusedbit_readdata   := timetag_multicyc_unusedbit(row_decoding(apbi.paddr(19 downto 4))).reg(31 downto 0);   --row decoding
                             when others => null;
                         end case;
                     end if;
@@ -217,7 +217,7 @@ architecture rtl of multitrace is
                     a_in <= a_tempv;
                     b_in <= b_tempv;
                     c_in.reg <= c_tempv(31 downto 0);
-                    ---------------------------
+                    --------extending part-----
                     ctrl_reg_in     <= ctrl_reg_tempvar;
                     
                     --the code part below will generate a cascade mux 
@@ -232,10 +232,10 @@ architecture rtl of multitrace is
                       end case;             
                     else  
                       case apbi.paddr(3 downto 2) is
-                          when "00" => apbo.prdata <= opcode_readdata;       --drive apb read bus
+                          when "00" => apbo.prdata <= opcode_readdata;                        --drive apb read bus
                           when "01" => apbo.prdata <= errmode_instrctrap_progcnter_readdata;  --drive apb read bus
-                          when "10" => apbo.prdata <= ld_st_param_readdata;  --drive apb read bus
-                          when "11" => apbo.prdata <= timetag_multicyc_unusedbit_readdata;
+                          when "10" => apbo.prdata <= ld_st_param_readdata;                   --drive apb read bus
+                          when "11" => apbo.prdata <= timetag_multicyc_unusedbit_readdata;    --drive apb read bus
                           when others => apbo.prdata <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
                       end case;
                     end if;
