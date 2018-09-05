@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1534894014 source:f:\ucinspire_project\cb\multitraces\main.c
+	<stdio.h>
+	<stdlib.h>
+
