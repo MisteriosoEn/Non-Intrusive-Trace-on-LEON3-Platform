@@ -1,8 +1,0 @@
-[Device]
-Family = ;
-PartNumber = XC7A200T-1sbg484;
-Package = ;
-PartType = XC7A200T;
-Speed = -1;
-Operating_condition = COM;
-Status = Production;
