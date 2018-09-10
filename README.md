@@ -1,6 +1,6 @@
 # Non-Intrusive Monitoring on LEON3 Platform
 
-** It is recommended that reading this README.md, having a look on the slide and the documentation first. **
+**It is recommended that reading this README.md, having a look on the slide and the documentation first.**
 
 ## Basic Information
 
