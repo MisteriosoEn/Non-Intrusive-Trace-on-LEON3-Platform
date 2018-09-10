@@ -1,5 +1,6 @@
 # Non-Intrusive Monitoring on LEON3 Platform
 
+It is recommended that reading this README.md, having a look on the slide and the documentation first.
 
 ## Basic Information
 
@@ -10,7 +11,7 @@ You may need the necessary to gain access to the Vivado tools.
 
 Some codes were supported in Vivado 2017.2 but not supported in the later versions of Vivado (the design tool will report a syntax error), but they just need some simple changes to adapt to the new version of  Vivado. I adjusted the code to make it correct in Vivado 2018.2 In the pcore source codes I wrote comments to indicate these adaptations.
 
-## About My Work
+## About My Work and Non-Intrusive Tracing
 
 LEON3 microprocessor has an original internal instruction trace interface which located inside the LEON3 CPU core. The original trace interface is connected to the instruction trace buffer which is also inside the LEON3 CPU core.
 
@@ -25,7 +26,7 @@ The structure of this repository is:
 	
     It contains some useful user manuals provided by Cobham Gaisler and Xilinx
     
-    Some of them I left my notes in the pdf files, which may be helpful for you. If you prefer to read original user manuals, you can download them from the website link in the README.txt file in this directory.
+    I left my notes in some of these pdf files, which may be helpful for you. If you prefer to read original user manuals without any notes, you can download them from the website link in the README.txt file in this directory.
     
 * LEON3_Projects
 
