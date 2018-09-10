@@ -1,6 +1,6 @@
 # Non-Intrusive Monitoring on LEON3 Platform
 
-It is recommended that reading this README.md, having a look on the slide and the documentation first.
+** It is recommended that reading this README.md, having a look on the slide and the documentation first. **
 
 ## Basic Information
 
@@ -9,7 +9,7 @@ The platform is realized on Digilent Nexys-Video FPGA board using design tool Xi
 
 You may need the necessary to gain access to the Vivado tools.
 
-Some codes were supported in Vivado 2017.2 but not supported in the later versions of Vivado (the design tool will report a syntax error), but they just need some simple changes to adapt to the new version of  Vivado. I adjusted the code to make it correct in Vivado 2018.2 In the pcore source codes I wrote comments to indicate these adaptations.
+Some codes were supported in Vivado 2017.2 but not supported in the later versions of Vivado (the design tool will report a syntax error), but they just need some simple changes to adapt to the new version of  Vivado. I adjusted the code to make it correct in Vivado 2018.2. In the pcore source codes I wrote comments to indicate these adaptations.
 
 ## About My Work and Non-Intrusive Tracing
 
